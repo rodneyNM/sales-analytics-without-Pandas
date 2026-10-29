@@ -97,5 +97,3 @@ with the pandas calculations.
 - M-Pesa accounted for the largest share of revenue by payment method.
 - Five transactions met the KES 50,000 high-value threshold.
 - Four rows were excluded because quantity or unit price could not be trusted.
-
-Note: This report summarises the supplied sales CSV and the stated cleaning rules.
