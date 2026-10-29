@@ -1,0 +1,101 @@
+TECH HUB KENYA
+SEPTEMBER 2026 SALES REPORT
+========================================
+
+1. EXECUTIVE SUMMARY
+----------------------------------------
+Raw sales rows read: 50
+Rows included in analysis: 46
+Rows skipped: 4
+Total revenue from valid transactions: KES 1,310,812.00
+High-value transactions (KES 50,000.00 or more): 5
+
+Revenue is calculated per transaction as:
+quantity x unit price (KES)
+
+Only rows with a positive whole-number quantity and a positive, parseable unit price
+are included in revenue calculations. The four excluded rows are listed below.
+
+2. TOP THREE PRODUCTS BY REVENUE
+----------------------------------------
+1. HP 15 Laptop: KES 389,994.00
+2. Hisense 43in Smart TV: KES 272,993.00
+3. Lenovo Tab M10: KES 199,992.00
+
+3. REVENUE BY STORE
+----------------------------------------
+Kisumu Mega Plaza: KES 449,678.00
+Nairobi CBD: KES 331,085.00
+Westgate: KES 235,979.00
+Mombasa City Mall: KES 154,082.00
+Nakuru Westside: KES 139,988.00
+
+4. REVENUE BY PAYMENT METHOD
+----------------------------------------
+M-Pesa: KES 738,568.00
+Cash: KES 304,375.00
+Card: KES 267,869.00
+
+5. HIGH-VALUE TRANSACTIONS
+----------------------------------------
+Threshold: KES 50,000.00 or more
+
+Sale ID | Date | Store | Product | Quantity | Revenue
+S-3013 | 2026-09-08 | Westgate | Lenovo Tab M10 | 4 | KES 99,996.00
+S-3017 | 2026-09-10 | Kisumu Mega Plaza | Hisense 43in Smart TV | 4 | KES 155,996.00
+S-3022 | 2026-09-13 | Nairobi CBD | HP 15 Laptop | 4 | KES 259,996.00
+S-3036 | 2026-09-21 | Nakuru Westside | Tecno Spark 20 | 4 | KES 53,996.00
+S-3048 | 2026-09-30 | Kisumu Mega Plaza | HP 15 Laptop | 2 | KES 129,998.00
+
+High-value transaction count by store:
+Westgate: 1
+Kisumu Mega Plaza: 2
+Nakuru Westside: 1
+Mombasa City Mall: 0
+Nairobi CBD: 1
+
+These transactions are flagged for follow-up based on transaction value only.
+This does not mean they are unpaid, overdue, or problematic.
+
+6. PER-TRANSACTION REVENUE STATISTICS
+----------------------------------------
+Mean: KES 28,495.91
+Median: KES 11,097.00
+Minimum: KES 1,499.00
+Maximum: KES 259,996.00
+
+7. SKIPPED ROWS AND REASONS
+----------------------------------------
+Sale S-3006: quantity is 'two', which cannot be safely converted to a number
+without guessing. The row was excluded.
+Sale S-3030: unit price is 'N/A', so a reliable price is unavailable. The row was excluded.
+Sale S-3035: quantity is blank, so transaction quantity is unknown. The row was excluded.
+Sale S-3039: unit price is blank, so transaction revenue cannot be calculated. The row was excluded.
+
+The script can safely clean values such as '38,999' and 'KES 18999' by removing a
+valid thousands separator or a leading KES label. It does not guess missing values.
+
+8. VALIDATION
+----------------------------------------
+The pandas verification produced MATCH for all seven checks:
+- Total revenue
+- Product revenue breakdown
+- Store revenue breakdown
+- Payment method revenue breakdown
+- High-value transaction count
+- Clean row count
+- Skipped row count
+
+Pandas repeats the same cleaning rules and recomputes the figures independently.
+Matching results provide a cross-check that the standard-library calculations agree
+with the pandas calculations.
+
+9. KEY TAKEAWAYS
+----------------------------------------
+- HP 15 Laptop generated the highest product revenue.
+- Kisumu Mega Plaza recorded the highest store revenue.
+- M-Pesa accounted for the largest share of revenue by payment method.
+- Five transactions met the KES 50,000 high-value threshold.
+- Four rows were excluded because quantity or unit price could not be trusted.
+
+Note: This report summarises the supplied sales CSV and the stated cleaning rules.
